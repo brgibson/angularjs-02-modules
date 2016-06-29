@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
 	<meta charset="utf-8">
 	<title>AngularJS Modules</title>
@@ -7,15 +7,31 @@
 	<link href="vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="css/ng-cloak.css" rel="stylesheet">
 </head>
-<body ng-cloak>
+<body ng-cloak >
 	<div class="panel">
 		<div class="page-header">
 			<h3>AngularJS App</h3>
 		</div>
-		<h4>Today is </h4>
+		<h4 ng-controller="Day" highlight="Wednesday">Today is {{day | dayNames}}</h4>
+        <h4 ng-controller="Tomorrow">Tomorrow is {{day | dayNames}}</h4>
 	</div>
 
 	<script src="vendor/angular/angular.min.js"></script>
 	<script src="app.js"></script>
+
+    <script src="common/common.modules.js"></script>
+
+    <script src="common/filters/common-filters.module.js"></script>
+    <script src="common/filters/day-names.filter.js"></script>
+
+    <script src="common/services/common-services.module.js"></script>
+    <script src="common/services/days.service.js"></script>
+    <script src="common/services/now-value.service.js"></script>
+
+    <script src="feature/feature.module.js"></script>
+    <script src="feature/day.controller.js"></script>
+    <script src="feature/tomorrow.controller.js"></script>
+    <script src="feature/highlight.directive.js"></script>
+
 </body>
 </html>
